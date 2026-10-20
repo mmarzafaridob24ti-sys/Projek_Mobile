@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/soft_red"
+    android:orientation="vertical"
+    tools:context=".AktivitasFragment">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/deep_red"
+        app:contentInsetStart="20dp"
+        app:subtitle="Riwayat laporan darurat"
+        app:subtitleTextColor="@color/soft_red"
+        app:title="Aktivitas"
+        app:titleTextColor="@color/white" />
+
+    <ListView
+        android:id="@+id/listAktivitas"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="0dp"
+        android:paddingVertical="8dp" />
+</LinearLayout>

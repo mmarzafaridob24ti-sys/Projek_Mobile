@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="emergency_red">#D93832</color>
+    <color name="deep_red">#BD302B</color>
+    <color name="soft_red">#FFF0EE</color>
+    <color name="dark_text">#3E2423</color>
+    <color name="white">#FFFFFF</color>
+</resources>

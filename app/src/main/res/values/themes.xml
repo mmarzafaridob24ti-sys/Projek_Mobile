@@ -1,0 +1,12 @@
+<resources>
+    <style name="Theme.Edho_3tic" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/emergency_red</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/deep_red</item>
+        <item name="android:statusBarColor">@color/deep_red</item>
+        <item name="android:textColorPrimary">@color/dark_text</item>
+        <item name="android:fontFamily">@font/dm_sans</item>
+        <item name="fontFamily">@font/dm_sans</item>
+        <item name="colorSecondaryContainer">#FDE3E0</item>
+    </style>
+</resources>
