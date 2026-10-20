@@ -39,6 +39,13 @@ class PanduanFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // Tombol ke halaman web (WebViewActivity), alamat dikirim lewat Intent
+        binding.btnWeb.setOnClickListener {
+            val intent = Intent(requireContext(), WebViewActivity::class.java)
+            intent.putExtra("url", "https://esdm.jabarprov.go.id/prosedurevakuasi")
+            startActivity(intent)
+        }
+
         val adapter = SimpleAdapter(
             requireContext(),
             dataPanduan,

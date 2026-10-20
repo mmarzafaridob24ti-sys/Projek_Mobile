@@ -19,6 +19,17 @@
         app:title="Panduan"
         app:titleTextColor="@color/white" />
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnWeb"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginVertical="12dp"
+        android:backgroundTint="@color/emergency_red"
+        android:text="Prosedur Evakuasi (Web)"
+        android:textColor="@color/white"
+        app:cornerRadius="16dp" />
+
     <ListView
         android:id="@+id/listPanduan"
         android:layout_width="match_parent"
