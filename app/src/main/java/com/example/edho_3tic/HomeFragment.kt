@@ -47,7 +47,7 @@ class HomeFragment : Fragment() {
 
         // SOS membuka Layanan Darurat (EnamActivity)
         binding.btnSos.setOnClickListener {
-            startActivity(Intent(requireContext(), EnamActivity::class.java))
+            startActivity(Intent(requireContext(), LayananDaruratActivity::class.java))
         }
 
         binding.cardAmbulans.setOnClickListener { tampilSnackbar("Menghubungi ambulans...") }

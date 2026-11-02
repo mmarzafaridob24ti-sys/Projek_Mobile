@@ -12,7 +12,7 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.google.android.material.card.MaterialCardView
 
-class SatuFragment : Fragment() {
+class LaporFragment : Fragment() {
 
     private val jenis = listOf("Darurat Medis", "Kebakaran", "Kriminalitas", "Bencana")
     private val ikon = listOf(
@@ -28,7 +28,7 @@ class SatuFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_satu, container, false)
+        return inflater.inflate(R.layout.fragment_lapor, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -51,12 +51,12 @@ class SatuFragment : Fragment() {
         tandaiPilihan(cards)
 
         view.findViewById<Button>(R.id.btnLanjutkan).setOnClickListener {
-            // Simpan jenis laporan, lalu tampilkan DuaFragment (Status Bantuan)
+            // Simpan jenis laporan, lalu tampilkan StatusFragment
             val sharedPref = requireContext().getSharedPreferences("user_pref", Context.MODE_PRIVATE)
             sharedPref.edit().putString("jenis_laporan", jenis[terpilih]).apply()
 
             parentFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, DuaFragment())
+                .replace(R.id.fragment_container, StatusFragment())
                 .commit()
         }
     }

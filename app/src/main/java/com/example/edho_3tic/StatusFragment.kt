@@ -11,13 +11,13 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 
-class DuaFragment : Fragment() {
+class StatusFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_dua, container, false)
+        return inflater.inflate(R.layout.fragment_status, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

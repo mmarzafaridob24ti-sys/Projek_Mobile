@@ -7,15 +7,15 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
-import com.example.edho_3tic.databinding.ActivityEnamBinding
+import com.example.edho_3tic.databinding.ActivityLayananDaruratBinding
 
-class EnamActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityEnamBinding
+class LayananDaruratActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityLayananDaruratBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        binding = ActivityEnamBinding.inflate(layoutInflater)
+        binding = ActivityLayananDaruratBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         ViewCompat.setOnApplyWindowInsetsListener(binding.main) { v, insets ->
@@ -34,15 +34,14 @@ class EnamActivity : AppCompatActivity() {
             setHomeAsUpIndicator(R.drawable.ic_arrow_back)
         }
 
-        // Menampilkan fragment pertama secara default
+        // Fragment pertama: Lapor
         if (savedInstanceState == null) {
-            replaceFragment(SatuFragment())
+            replaceFragment(LaporFragment())
         }
 
-        // Setiap tombol menampilkan fragment-nya
-        binding.btnFragment1.setOnClickListener { replaceFragment(SatuFragment()) }
-        binding.btnFragment2.setOnClickListener { replaceFragment(DuaFragment()) }
-        binding.btnFragment3.setOnClickListener { replaceFragment(TigaFragment()) }
+        binding.btnFragment1.setOnClickListener { replaceFragment(LaporFragment()) }
+        binding.btnFragment2.setOnClickListener { replaceFragment(StatusFragment()) }
+        binding.btnFragment3.setOnClickListener { replaceFragment(PanduanDaruratFragment()) }
     }
 
     // Tanpa addToBackStack: tombol kembali langsung menutup activity ini
@@ -52,7 +51,7 @@ class EnamActivity : AppCompatActivity() {
             .commit()
     }
 
-    // Tombol kembali di toolbar: langsung kembali ke Main
+    // Tombol kembali di toolbar: langsung kembali ke Beranda
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             android.R.id.home -> {

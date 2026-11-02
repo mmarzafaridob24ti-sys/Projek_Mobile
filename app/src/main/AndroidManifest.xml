@@ -30,7 +30,7 @@
             android:name=".BaseActivity"
             android:exported="false" />
         <activity
-            android:name=".EnamActivity"
+            android:name=".LayananDaruratActivity"
             android:exported="false" />
         <activity
             android:name=".WebViewActivity"
