@@ -6,8 +6,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 
 class PanduanDaruratFragment : Fragment() {
@@ -22,19 +20,19 @@ class PanduanDaruratFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        isiBaris(view, R.id.menuAmbulans, R.drawable.ic_heart, "Ambulans", "119")
-        isiBaris(view, R.id.menuPemadam, R.drawable.ic_fire, "Pemadam Kebakaran", "113")
-        isiBaris(view, R.id.menuPolisi, R.drawable.ic_shield, "Polisi", "110")
-        isiBaris(view, R.id.menuBasarnas, R.drawable.ic_warning, "Basarnas (SAR)", "115")
+        // DIUBAH: tiap tombol di GridLayout dihubungkan ke nomor teleponnya
+        pasangTelepon(view, R.id.btnAmbulans, "119")
+        pasangTelepon(view, R.id.btnPemadam, "113")
+        pasangTelepon(view, R.id.btnPolisi, "110")
+        pasangTelepon(view, R.id.btnBasarnas, "115")
+        pasangTelepon(view, R.id.btnUmum, "112")
+        pasangTelepon(view, R.id.btnPln, "123")
     }
 
-    // Mengisi satu baris dan membuka dialer saat ditekan
-    private fun isiBaris(view: View, idBaris: Int, ikon: Int, judul: String, nomor: String) {
-        val baris = view.findViewById<View>(idBaris)
-        baris.findViewById<ImageView>(R.id.ivIcon).setImageResource(ikon)
-        baris.findViewById<TextView>(R.id.tvTitle).text = judul
-        baris.findViewById<TextView>(R.id.tvSub).text = "Hubungi $nomor"
-        baris.setOnClickListener {
+    // BARU: saat tombol ditekan, buka aplikasi telepon dengan nomor sudah terisi.
+    // ACTION_DIAL hanya membuka dialer (tidak menelepon langsung), jadi tanpa izin khusus
+    private fun pasangTelepon(view: View, idTombol: Int, nomor: String) {
+        view.findViewById<View>(idTombol).setOnClickListener {
             startActivity(Intent(Intent.ACTION_DIAL, Uri.parse("tel:$nomor")))
         }
     }

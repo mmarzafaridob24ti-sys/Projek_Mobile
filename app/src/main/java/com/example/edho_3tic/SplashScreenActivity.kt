@@ -15,19 +15,28 @@ class SplashScreenActivity : AppCompatActivity() {
         val sharedPref = getSharedPreferences("user_pref", MODE_PRIVATE)
         val isLogin = sharedPref.getBoolean("isLogin", false)
 
-        // Sudah login: langsung ke BaseActivity tanpa splash
+        // Sudah login: langsung ke BaseActivity tanpa splash dan tutorial
         if (isLogin) {
             startActivity(Intent(this, BaseActivity::class.java))
             finish()
             return
         }
 
-        // Belum login: splash 2 detik, lalu ke Login
+        // Belum login: tampilkan splash 2 detik
         setContentView(R.layout.activity_splash_screen)
 
         lifecycleScope.launch {
             delay(2000)
-            startActivity(Intent(this@SplashScreenActivity, LoginActivity::class.java))
+
+            // DIUBAH: cek apakah tutorial sudah pernah dilihat
+            val tutorialSeen = getSharedPreferences("app_pref", MODE_PRIVATE)
+                .getBoolean("tutorial_seen", false)
+
+            // Belum pernah: ke Tutorial. Sudah pernah: langsung ke Login
+            val tujuan = if (tutorialSeen) LoginActivity::class.java
+            else TutorialActivity::class.java
+
+            startActivity(Intent(this@SplashScreenActivity, tujuan))
             finish()
         }
     }

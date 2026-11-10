@@ -19,6 +19,73 @@
         app:title="Aktivitas"
         app:titleTextColor="@color/white" />
 
+    <!-- BARU: HorizontalScrollView agar chip bisa digeser ke samping -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="16dp"
+        android:scrollbars="none">
+
+        <!-- BARU: ChipGroup. singleSelection = hanya satu chip aktif.
+             selectionRequired = chip aktif tidak bisa dimatikan,
+             jadi selalu ada satu filter terpilih -->
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chipGroupFilter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingVertical="8dp"
+            app:selectionRequired="true"
+            app:singleLine="true"
+            app:singleSelection="true">
+
+            <!-- Chip bergaya Filter: tampil centang saat dipilih -->
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipSemua"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="Semua" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipMedis"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Medis" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipKebakaran"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Kebakaran" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipKriminal"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Kriminalitas" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipBencana"
+                style="@style/Widget.Material3.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bencana" />
+        </com.google.android.material.chip.ChipGroup>
+    </HorizontalScrollView>
+
+    <!-- BARU: teks jumlah laporan hasil filter -->
+    <TextView
+        android:id="@+id/tvJumlah"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:textColor="#8A7370"
+        android:textSize="12sp" />
+
     <ListView
         android:id="@+id/listAktivitas"
         android:layout_width="match_parent"

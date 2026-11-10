@@ -13,6 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Edho_3tic">
+
         <activity
             android:name=".SplashScreenActivity"
             android:exported="true">
@@ -22,20 +23,30 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- BARU: halaman tutorial (3 fragment + DotsIndicator) -->
+        <activity
+            android:name=".TutorialActivity"
+            android:exported="false" />
+
         <activity
             android:name=".LoginActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
+
         <activity
             android:name=".BaseActivity"
             android:exported="false" />
+
         <activity
             android:name=".LayananDaruratActivity"
             android:exported="false" />
+
         <activity
             android:name=".WebViewActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
+
     </application>
 
 </manifest>

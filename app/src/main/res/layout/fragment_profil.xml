@@ -22,8 +22,8 @@
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:paddingHorizontal="20dp"
-        android:paddingBottom="24dp">
+        android:paddingBottom="24dp"
+        android:paddingHorizontal="20dp">
 
         <ImageView
             android:layout_width="56dp"
@@ -69,6 +69,10 @@
 
             <include android:id="@+id/menuNama" layout="@layout/item_menu" />
             <include android:id="@+id/menuLokasi" layout="@layout/item_menu" />
+
+            <!-- BARU: baris menu untuk membuka ulang tutorial -->
+            <include android:id="@+id/menuTutorial" layout="@layout/item_menu" />
+
             <include android:id="@+id/menuTentang" layout="@layout/item_menu" />
 
             <com.google.android.material.card.MaterialCardView

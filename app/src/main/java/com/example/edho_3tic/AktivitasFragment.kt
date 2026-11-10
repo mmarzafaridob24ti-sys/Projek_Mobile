@@ -45,7 +45,28 @@ class AktivitasFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.listAktivitas.adapter = AktivitasAdapter(requireContext(), daftar)
+
+        // DIUBAH: saat pertama dibuka, tampilkan semua riwayat (chip "Semua" aktif)
+        tampilkan(daftar)
+
+        // BARU: dipanggil setiap kali chip yang dipilih berganti
+        binding.chipGroupFilter.setOnCheckedStateChangeListener { _, checkedIds ->
+            // checkedIds berisi id chip yang aktif (paling banyak satu karena singleSelection)
+            val hasil = when (checkedIds.firstOrNull()) {
+                R.id.chipMedis -> daftar.filter { it.jenis == "Darurat Medis" }
+                R.id.chipKebakaran -> daftar.filter { it.jenis == "Kebakaran" }
+                R.id.chipKriminal -> daftar.filter { it.jenis == "Kriminalitas" }
+                R.id.chipBencana -> daftar.filter { it.jenis == "Bencana" }
+                else -> daftar // chip "Semua"
+            }
+            tampilkan(hasil)
+        }
+    }
+
+    // BARU: memasang adapter dengan data hasil filter dan memperbarui teks jumlah
+    private fun tampilkan(data: List<AktivitasModel>) {
+        binding.listAktivitas.adapter = AktivitasAdapter(requireContext(), data)
+        binding.tvJumlah.text = "Menampilkan ${data.size} laporan"
     }
 
     override fun onDestroyView() {

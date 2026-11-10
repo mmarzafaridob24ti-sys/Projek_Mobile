@@ -77,9 +77,102 @@
             android:textSize="16sp"
             android:textStyle="bold" />
 
-        <include android:id="@+id/menuAmbulans" layout="@layout/item_menu" />
-        <include android:id="@+id/menuPemadam" layout="@layout/item_menu" />
-        <include android:id="@+id/menuPolisi" layout="@layout/item_menu" />
-        <include android:id="@+id/menuBasarnas" layout="@layout/item_menu" />
+        <!-- DIUBAH: empat baris menu lama diganti GridLayout 3 kolom x 2 baris.
+             columnCount = jumlah kolom; useDefaultMargins = jarak antar tombol otomatis -->
+        <androidx.gridlayout.widget.GridLayout
+            android:id="@+id/gridNomor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:columnCount="3"
+            app:useDefaultMargins="true">
+
+            <!-- layout_columnWeight="1" + layout_gravity="fill_horizontal" membuat
+                 semua tombol sama lebar dan mengisi kolomnya.
+                 iconGravity="top" menaruh ikon di atas teks -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnAmbulans"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/emergency_red"
+                android:text="Ambulans\n119"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:cornerRadius="16dp"
+                app:icon="@drawable/ic_heart"
+                app:iconGravity="top"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill_horizontal" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnPemadam"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/emergency_red"
+                android:text="Pemadam\n113"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:cornerRadius="16dp"
+                app:icon="@drawable/ic_fire"
+                app:iconGravity="top"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill_horizontal" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnPolisi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/emergency_red"
+                android:text="Polisi\n110"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:cornerRadius="16dp"
+                app:icon="@drawable/ic_shield"
+                app:iconGravity="top"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill_horizontal" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnBasarnas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/deep_red"
+                android:text="Basarnas\n115"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:cornerRadius="16dp"
+                app:icon="@drawable/ic_location"
+                app:iconGravity="top"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill_horizontal" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnUmum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/deep_red"
+                android:text="Darurat Umum\n112"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:cornerRadius="16dp"
+                app:icon="@drawable/ic_phone"
+                app:iconGravity="top"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill_horizontal" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnPln"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/deep_red"
+                android:text="PLN\n123"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:cornerRadius="16dp"
+                app:icon="@drawable/ic_warning"
+                app:iconGravity="top"
+                app:layout_columnWeight="1"
+                app:layout_gravity="fill_horizontal" />
+        </androidx.gridlayout.widget.GridLayout>
     </LinearLayout>
 </ScrollView>

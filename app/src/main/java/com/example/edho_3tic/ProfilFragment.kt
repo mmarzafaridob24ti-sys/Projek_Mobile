@@ -43,6 +43,14 @@ class ProfilFragment : Fragment() {
         binding.menuLokasi.tvTitle.text = "Ubah Lokasi"
         binding.menuLokasi.tvSub.text = DialogHelper.ambilLokasi(requireContext())
 
+        // BARU: baris menu untuk membuka ulang tutorial
+        binding.menuTutorial.ivIcon.setImageResource(R.drawable.ic_book)
+        binding.menuTutorial.ivIcon.setColorFilter(
+            ContextCompat.getColor(requireContext(), R.color.emergency_red)
+        )
+        binding.menuTutorial.tvTitle.text = "Lihat Tutorial"
+        binding.menuTutorial.tvSub.text = "Panduan singkat memakai SIAGA"
+
         binding.menuTentang.ivIcon.setImageResource(R.drawable.ic_shield)
         binding.menuTentang.tvTitle.text = "Tentang SIAGA"
         binding.menuTentang.tvSub.text = "Versi 1.0"
@@ -70,6 +78,14 @@ class ProfilFragment : Fragment() {
                 sharedPref.edit().putString("lokasi", lokasiBaru).apply()
                 binding.menuLokasi.tvSub.text = lokasiBaru
             }
+        }
+
+        // BARU: buka ulang tutorial.
+        // dari_profil = true: setelah selesai, tutorial hanya menutup diri
+        binding.menuTutorial.root.setOnClickListener {
+            val intent = Intent(requireContext(), TutorialActivity::class.java)
+            intent.putExtra("dari_profil", true)
+            startActivity(intent)
         }
 
         // Tentang SIAGA
