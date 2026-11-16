@@ -83,7 +83,7 @@ class ProfilFragment : Fragment() {
         // BARU: buka ulang tutorial.
         // dari_profil = true: setelah selesai, tutorial hanya menutup diri
         binding.menuTutorial.root.setOnClickListener {
-            val intent = Intent(requireContext(), TutorialActivity::class.java)
+            val intent = Intent(requireContext(), PengenalanActivity::class.java)
             intent.putExtra("dari_profil", true)
             startActivity(intent)
         }

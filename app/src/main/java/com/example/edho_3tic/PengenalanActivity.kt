@@ -4,27 +4,27 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import com.example.edho_3tic.databinding.ActivityTutorialBinding
+import com.example.edho_3tic.databinding.ActivityPengenalanBinding
 
 // BARU: halaman tutorial 3 fragment yang tampil setelah Splash
-class TutorialActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityTutorialBinding
+class PengenalanActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityPengenalanBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        binding = ActivityTutorialBinding.inflate(layoutInflater)
+        binding = ActivityPengenalanBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         // Daftar halaman tutorial (3 fragment)
         val fragmentsList = listOf(
-            Tutorial1Fragment(),
-            Tutorial2Fragment(),
-            Tutorial3Fragment()
+            SelamatDatangFragment(),
+            CaraSosFragment(),
+            PantauBantuanFragment()
         )
 
         // Pasang adapter ke ViewPager2
-        val adapter = TutorialFragmentAdapter(this, fragmentsList)
+        val adapter = PengenalanFragmentAdapter(this, fragmentsList)
         binding.tutorialViewPager.adapter = adapter
 
         // Hubungkan titik penanda dengan ViewPager2.

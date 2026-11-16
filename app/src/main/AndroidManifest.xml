@@ -24,9 +24,8 @@
             </intent-filter>
         </activity>
 
-        <!-- BARU: halaman tutorial (3 fragment + DotsIndicator) -->
         <activity
-            android:name=".TutorialActivity"
+            android:name=".PengenalanActivity"
             android:exported="false" />
 
         <activity
@@ -46,6 +45,11 @@
             android:name=".WebViewActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
+
+        <!-- BARU: halaman bertab Info Darurat (TabLayout + ViewPager2) -->
+        <activity
+            android:name=".InfoDaruratActivity"
+            android:exported="false" />
 
     </application>
 

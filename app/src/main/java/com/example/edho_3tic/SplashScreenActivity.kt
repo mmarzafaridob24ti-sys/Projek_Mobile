@@ -34,7 +34,7 @@ class SplashScreenActivity : AppCompatActivity() {
 
             // Belum pernah: ke Tutorial. Sudah pernah: langsung ke Login
             val tujuan = if (tutorialSeen) LoginActivity::class.java
-            else TutorialActivity::class.java
+            else PengenalanActivity::class.java
 
             startActivity(Intent(this@SplashScreenActivity, tujuan))
             finish()

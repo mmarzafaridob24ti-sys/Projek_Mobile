@@ -46,6 +46,11 @@ class PanduanFragment : Fragment() {
             startActivity(intent)
         }
 
+        // BARU: tombol ke halaman bertab (Tips Siaga dan Fasilitas)
+        binding.btnInfo.setOnClickListener {
+            startActivity(Intent(requireContext(), InfoDaruratActivity::class.java))
+        }
+
         val adapter = SimpleAdapter(
             requireContext(),
             dataPanduan,

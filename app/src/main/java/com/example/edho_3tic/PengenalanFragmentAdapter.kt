@@ -5,7 +5,7 @@ import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 
 // BARU: menghubungkan daftar fragment dengan ViewPager2
-class TutorialFragmentAdapter(
+class PengenalanFragmentAdapter(
     activity: FragmentActivity,
     private val fragments: List<Fragment>
 ) : FragmentStateAdapter(activity) {

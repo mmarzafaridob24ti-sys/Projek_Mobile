@@ -48,6 +48,8 @@ dependencies {
     // DotsIndicator: titik penanda halaman (dipakai di Tutorial)
     implementation("com.tbuonomo:dotsindicator:5.1.0")
     implementation(libs.androidx.activity)
+    // RecyclerView: daftar/grid yang menyusun item dan mendaur ulang tampilannya
+    implementation("androidx.recyclerview:recyclerview:1.3.2")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.espresso.core)

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/soft_red"
+    android:orientation="vertical"
+    tools:context=".InfoDaruratActivity">
+
+    <!-- Area header merah; padding atasnya diisi tinggi status bar dari kode -->
+    <LinearLayout
+        android:id="@+id/headerArea"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/deep_red"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/deep_red"
+            app:subtitle="Tips dan fasilitas terdekat"
+            app:subtitleTextColor="@color/soft_red"
+            app:title="Info Darurat"
+            app:titleTextColor="@color/white" />
+    </LinearLayout>
+
+    <!-- TabLayout: deretan judul tab.
+         tabIconTint = warna ikon, tabTextColor / tabSelectedTextColor = warna teks,
+         tabIndicator* = garis di bawah tab aktif,
+         tabIndicatorFullWidth=false = garis hanya selebar isi tab -->
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:tabIconTint="@color/tab_color"
+        app:tabIndicatorColor="@color/emergency_red"
+        app:tabIndicatorFullWidth="false"
+        app:tabIndicatorHeight="3dp"
+        app:tabMode="fixed"
+        app:tabRippleColor="#33D93832"
+        app:tabSelectedTextColor="@color/emergency_red"
+        app:tabTextColor="#8A7370" />
+
+    <!-- ViewPager2: area isi tab yang bisa digeser kiri-kanan -->
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+</LinearLayout>

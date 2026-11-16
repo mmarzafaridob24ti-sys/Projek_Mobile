@@ -8,13 +8,13 @@ import android.widget.Button
 import androidx.fragment.app.Fragment
 
 // BARU: halaman 1 tutorial, pengenalan SIAGA
-class Tutorial1Fragment : Fragment() {
+class SelamatDatangFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_tutorial1, container, false)
+        return inflater.inflate(R.layout.fragment_selamat_datang, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -22,7 +22,7 @@ class Tutorial1Fragment : Fragment() {
 
         // Lewati: menutup tutorial dan lanjut ke halaman berikutnya di alur aplikasi
         view.findViewById<Button>(R.id.btnLewati).setOnClickListener {
-            (requireActivity() as TutorialActivity).selesaiTutorial()
+            (requireActivity() as PengenalanActivity).selesaiTutorial()
         }
     }
 }
