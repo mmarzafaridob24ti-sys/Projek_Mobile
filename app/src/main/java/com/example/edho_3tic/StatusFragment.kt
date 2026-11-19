@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import java.util.Locale
 
 class StatusFragment : Fragment() {
 
@@ -23,10 +24,14 @@ class StatusFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Jenis laporan dari SatuFragment (nilai cadangan jika belum ada)
+        // Jenis dan id laporan terakhir yang disimpan LaporFragment ke Room
         val sharedPref = requireContext().getSharedPreferences("user_pref", Context.MODE_PRIVATE)
         val jenis = sharedPref.getString("jenis_laporan", "Darurat Medis")
-        view.findViewById<TextView>(R.id.tvLaporan).text = "Laporan #SGA-240118 · $jenis"
+        val idLaporan = sharedPref.getLong("laporan_id", 0L)
+
+        // BARU: nomor laporan berasal dari id baris di database (contoh: #SGA-0007)
+        val nomor = String.format(Locale.US, "#SGA-%04d", idLaporan)
+        view.findViewById<TextView>(R.id.tvLaporan).text = "Laporan $nomor · $jenis"
 
         // Hubungi petugas: buka dialer nomor darurat 112
         view.findViewById<Button>(R.id.btnHubungi).setOnClickListener {

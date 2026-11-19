@@ -1,5 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
+
+    // BARU: aktifkan KSP di modul app
+    id("com.google.devtools.ksp")
 }
 
 android {
@@ -30,7 +33,7 @@ android {
         targetCompatibility = JavaVersion.VERSION_11
     }
 
-    buildFeatures{
+    buildFeatures {
         viewBinding = true
     }
 }
@@ -41,15 +44,18 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.core.ktx)
     implementation(libs.material)
-    // GridLayout: menyusun tombol dalam petak (dipakai di tab Panduan)
+
+    // Pertemuan 9 dan 10
     implementation("androidx.gridlayout:gridlayout:1.0.0")
-    // ViewPager2: halaman yang bisa digeser kiri-kanan (dipakai di Tutorial)
     implementation("androidx.viewpager2:viewpager2:1.1.0")
-    // DotsIndicator: titik penanda halaman (dipakai di Tutorial)
     implementation("com.tbuonomo:dotsindicator:5.1.0")
-    implementation(libs.androidx.activity)
-    // RecyclerView: daftar/grid yang menyusun item dan mendaur ulang tampilannya
     implementation("androidx.recyclerview:recyclerview:1.3.2")
+
+    // BARU (Pertemuan 12): Room Database
+    val roomVersion = "2.8.5"
+    implementation("androidx.room:room-runtime:$roomVersion")   // inti Room
+    implementation("androidx.room:room-ktx:$roomVersion")       // dukungan coroutine (suspend)
+    ksp("androidx.room:room-compiler:$roomVersion")             // pembuat kode DAO dan Database
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.espresso.core)
